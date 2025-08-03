@@ -43,15 +43,25 @@ export default function ListPage() {
       <h2 className="my-4 text-xl font-bold">Users</h2>
 
       <div>
-        <table className="min-w-full border-separate border-spacing-y-1 w-full">
+        <table
+          id="users-table"
+          className="min-w-full border-separate border-spacing-y-1 w-full"
+        >
           <thead>
             <tr className="text-white">
               <th className="font-medium px-4 py-2 text-left">#</th>
-              <th id="button-1" className="font-medium px-4 py-2 text-left">
+              <th id="column-name" className="font-medium px-4 py-2 text-left">
                 Name
               </th>
-              <th className="font-medium px-4 py-2 text-left">Email</th>
-              <th className="font-medium px-4 py-2 text-left">Birthday</th>
+              <th id="column-email" className="font-medium px-4 py-2 text-left">
+                Email
+              </th>
+              <th
+                id="column-birthday"
+                className="font-medium px-4 py-2 text-left"
+              >
+                Birthday
+              </th>
             </tr>
           </thead>
           <tbody>

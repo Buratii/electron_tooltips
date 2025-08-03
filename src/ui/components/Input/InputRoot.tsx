@@ -8,13 +8,8 @@ interface InputRootProps extends HTMLAttributes<HTMLDivElement> {
 
 export function InputRoot({ id, children, className, error }: InputRootProps) {
   return (
-    <div id={id} className="flex flex-col gap-1.5 w-full">
-      <div
-        className={twMerge(
-          "flex items-center border-gray-200 h-14 border rounded-10xl px-6",
-          className
-        )}
-      >
+    <div id={id} className={twMerge("flex flex-col gap-1.5 w-full", className)}>
+      <div className="flex items-center border-gray-200 h-14 border rounded-10xl px-6">
         {children}
       </div>
       {error &&

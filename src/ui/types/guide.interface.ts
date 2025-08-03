@@ -5,6 +5,7 @@ export interface Guide {
 
 export interface TooltipItem {
   id: string;
-  content: string;
+  title?: string;
+  content?: string;
   action: "next" | "finish";
 }

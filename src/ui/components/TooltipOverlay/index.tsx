@@ -9,6 +9,7 @@ export default function TooltipOverlay() {
     top: number;
     left: number;
     width: number;
+    height: number;
   } | null>(null);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function TooltipOverlay() {
           top: rect.top + window.scrollY,
           left: rect.left + window.scrollX,
           width: rect.width,
+          height: rect.height,
         });
         el.scrollIntoView({ behavior: "smooth", block: "center" });
       }
@@ -34,26 +36,40 @@ export default function TooltipOverlay() {
     <>
       <div
         onClick={finish}
-        className="fixed inset-0 bg-black opacity-50 z-40"
+        className="absolute bg-transparent z-50 pointer-events-none"
+        style={{
+          top: position.top,
+          left: position.left,
+          width: position.width,
+          height: position.height,
+          boxShadow: "0 0 0 9999px rgba(0, 0, 0, 0.6)",
+          borderRadius: "32px",
+        }}
       />
 
       <div
-        className="absolute bg-gray-800 text-gray-100 px-5 py-4 rounded-lg shadow-xl transition-all duration-300 z-50 max-w-sm w-fit"
+        className="absolute bg-gray-800 text-gray-100 px-5 py-4 rounded-lg shadow-xl transition-all duration-300 z-50 max-w-sm w-64"
         style={{
-          top: position.top + 48,
+          top: position.top + position.height + 16,
           left: position.left,
         }}
       >
         <div className="absolute -top-1 left-4 w-2 h-2 bg-gray-800 rotate-45" />
         <div className="relative overflow-visible">
-          <p className="text-sm">{currentTooltip.content}</p>
+          {currentTooltip.title && (
+            <h3 className="font-bold">{currentTooltip.title}</h3>
+          )}
 
-          <div className="flex justify-end mt-6 space-x-2 gap-x-2">
+          {currentTooltip.content && (
+            <p className="text-sm mt-1">{currentTooltip.content}</p>
+          )}
+
+          <div className="flex justify-end mt-4 gap-x-2">
             {step !== 0 && (
               <Button
                 onClick={previousStep}
                 variant="text"
-                className="text-gray-500"
+                className="text-gray-300"
               >
                 Back
               </Button>
@@ -64,7 +80,9 @@ export default function TooltipOverlay() {
               </Button>
             )}
             {currentTooltip.action === "finish" && (
-              <Button onClick={finish}>Got it!</Button>
+              <Button onClick={finish} variant="text">
+                Got it!
+              </Button>
             )}
           </div>
         </div>

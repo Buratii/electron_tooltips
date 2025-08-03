@@ -64,9 +64,8 @@ export default function FormPage() {
       <h2 className="text-2xl font-bold mb-6">New user</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div>
-          <Input.Root>
+          <Input.Root id="input-name">
             <Input.Bar
-              id="input-name"
               type="text"
               placeholder="Enter your name"
               {...register("name", { required: true })}
@@ -80,9 +79,8 @@ export default function FormPage() {
         </div>
 
         <div>
-          <Input.Root>
+          <Input.Root id="input-email">
             <Input.Bar
-              id="input-email"
               type="email"
               placeholder="Enter your email"
               {...register("email", { required: true })}
@@ -96,7 +94,7 @@ export default function FormPage() {
         </div>
 
         <div>
-          <Input.Root>
+          <Input.Root id="input-birthday">
             <Input.Bar
               ref={combinedRef}
               placeholder="Birthday"
@@ -114,6 +112,7 @@ export default function FormPage() {
 
         <div className="flex gap-4 justify-end">
           <Button
+            id="cancel-button"
             type="button"
             variant="outlined"
             className="border-gray-500 text-gray-500"

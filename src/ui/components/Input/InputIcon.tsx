@@ -17,7 +17,7 @@ export function InputIcon({
   return (
     <Icon
       className={twMerge(
-        "text-gray-200 cursor-pointer w-6 h-6",
+        "text-gray-200 cursor-pointer w-4 h-4",
         className,
         position === "right" ? "ml-2" : "mr-2"
       )}

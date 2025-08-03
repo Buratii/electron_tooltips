@@ -6,22 +6,44 @@ export const guides: Guide[] = [
     tooltips: [
       {
         id: "input-search",
-        content: "Search for a user by name or email here.",
+        title: "User Search",
+        content:
+          "Use this search bar to quickly find users by typing their name or email. Start typing to see filtered results instantly.",
         action: "next",
       },
       {
         id: "button-add",
-        content: "Click here to add a new user.",
+        title: "Add a New User",
+        content:
+          "Click this button to navigate to the user registration form and add a new user to the list.",
         action: "next",
       },
       {
-        id: "button-1",
-        content: "This column displays the user's name.",
+        id: "users-table",
+        title: "Users Table Header",
+        content:
+          "This is the header of the users table. Below, you'll find detailed information for each user in the list.",
         action: "next",
       },
       {
-        id: "table-row",
-        content: "Click a row to view user details or perform actions.",
+        id: "column-name",
+        title: "Name Column",
+        content:
+          "This column displays the full name of each user. Click on a name to view more details (feature coming soon).",
+        action: "next",
+      },
+      {
+        id: "column-email",
+        title: "Email Column",
+        content:
+          "This column shows the email address associated with each user. Ensure emails are unique and valid.",
+        action: "next",
+      },
+      {
+        id: "column-birthday",
+        title: "Birthday Column",
+        content:
+          "This column displays the user's date of birth in DD/MM/YYYY format.",
         action: "finish",
       },
     ],
@@ -31,17 +53,37 @@ export const guides: Guide[] = [
     tooltips: [
       {
         id: "input-name",
-        content: "Enter the user's full name here.",
+        title: "Full Name Field",
+        content:
+          "Enter the complete name of the user here. This field is mandatory for creating a user profile.",
         action: "next",
       },
       {
         id: "input-email",
-        content: "Enter the user's email address here.",
+        title: "Email Address Field",
+        content:
+          "Provide a valid email address for the user. Make sure there are no typos as this will be used for communication.",
+        action: "next",
+      },
+      {
+        id: "input-birthday",
+        title: "Birthday Field",
+        content:
+          "Enter the user's date of birth in DD/MM/YYYY format. The field has an input mask to guide you.",
+        action: "next",
+      },
+      {
+        id: "cancel-button",
+        title: "Cancel Button",
+        content:
+          "If you wish to discard changes and go back to the previous page, click here.",
         action: "next",
       },
       {
         id: "submit-button",
-        content: "Click here to submit the form and save the user.",
+        title: "Save User",
+        content:
+          "Once all fields are filled correctly, click here to save the new user into the system.",
         action: "finish",
       },
     ],
