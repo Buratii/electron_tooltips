@@ -6,16 +6,16 @@ import { Search } from "../components/Search";
 import { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 
-const fuse = new Fuse(mockedData, {
-  keys: ["name", "email"],
-  threshold: 0.3,
-});
-
 export default function ListPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const [filteredData, setFilteredData] = useState(mockedData);
+
+  const fuse = new Fuse(filteredData, {
+    keys: ["name", "email"],
+    threshold: 0.3,
+  });
 
   useEffect(() => {
     const query = searchParams.get("query") ?? "";
